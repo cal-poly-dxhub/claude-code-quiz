@@ -1,0 +1,7 @@
+{
+  "name": "code-quiz",
+  "version": "1.0.0",
+  "description": "Quiz developers on their code changes before commits/pushes to ensure code comprehension",
+  "author": "Swayam Chidrawar",
+  "homepage": "https://github.com/swayamchidrawar/claude-code-quiz"
+}
