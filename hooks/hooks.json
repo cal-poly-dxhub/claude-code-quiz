@@ -1,0 +1,13 @@
+{
+  "hooks": [
+    {
+      "matcher": {
+        "tool": "Bash"
+      },
+      "hook": {
+        "type": "prompt",
+        "prompt": "Before executing this command, check if it is a git commit or git push operation (including variations like 'git commit -m', 'git push origin', etc.).\n\nIf it IS a git commit or git push:\n1. First, analyze the staged changes by running 'git diff --cached' (for commits) or recent commits (for pushes)\n2. Generate 2-3 targeted questions about the code changes to verify the developer understands what they're committing/pushing\n3. Use the AskUserQuestion tool to quiz the user on these questions\n4. After they answer, provide brief feedback on their responses\n5. If answers show misunderstanding, WARN the user but still ALLOW the operation to proceed (soft enforcement)\n6. Return 'proceed' to allow the git operation to continue regardless of quiz results\n\nIf it is NOT a git commit or git push, simply return 'proceed' without any quiz.\n\nRemember: This is soft enforcement - always allow the operation after the quiz, even if answers are incorrect. The goal is awareness, not blocking."
+      }
+    }
+  ]
+}
