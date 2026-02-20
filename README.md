@@ -134,7 +134,7 @@ Edit `hooks/hooks.json` and change "2-3 questions" to your preferred number.
 
 To block commits on failed quizzes, modify the hook prompt in `hooks/hooks.json` to return "block" instead of "proceed" when answers are incorrect. (Not recommended for most teams.)
 
-Disclaimers 
+## Disclaimers 
 
 Customers are responsible for making their own independent assessment of the information in this document. 
 
