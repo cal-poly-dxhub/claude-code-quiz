@@ -29,7 +29,7 @@ Automatically prompts you with 2-3 questions before any `git commit` or `git pus
 ### Option 1: Clone and install locally
 
 ```bash
-git clone https://github.com/swayamchidrawar/claude-code-quiz.git
+git clone https://github.com/cal-poly-dxhub/claude-code-quiz.git
 ```
 
 Then in Claude Code:
@@ -41,7 +41,7 @@ Then in Claude Code:
 ### Option 2: Install directly from GitHub
 
 ```
-/plugin install https://github.com/swayamchidrawar/claude-code-quiz
+/plugin install https://github.com/cal-poly-dxhub/claude-code-quiz
 ```
 
 ### Option 3: Add to settings
@@ -51,7 +51,7 @@ Add to your Claude Code settings file (`~/.claude/settings.json`):
 ```json
 {
   "plugins": [
-    "https://github.com/swayamchidrawar/claude-code-quiz"
+    "https://github.com/cal-poly-dxhub/claude-code-quiz"
   ]
 }
 ```
