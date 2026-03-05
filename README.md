@@ -13,7 +13,7 @@ Designed to combat "vibe coding" - when developers push code without fully under
 Test yourself on recent code changes at any time:
 
 ```
-/quiz
+/code-quiz:quiz
 ```
 
 Analyzes your uncommitted changes (or last commit if working tree is clean) and generates 3-5 questions to test your understanding.
@@ -28,12 +28,21 @@ Automatically prompts you with 2-3 questions before any `git commit` or `git pus
 
 ### Option 1: Install from GitHub (recommended)
 
-In Claude Code, add the marketplace and install the plugin:
+1. In Claude Code, add the marketplace:
 
 ```
 /plugin marketplace add cal-poly-dxhub/claude-code-quiz
-/plugin install code-quiz@cal-poly-dxhub-claude-code-quiz
 ```
+
+2. Open the plugin manager and navigate to the marketplace:
+
+```
+/plugin
+```
+
+3. Go to the **Marketplaces** tab, select **cal-poly-dxhub-claude-code-quiz**, then install the **code-quiz** plugin.
+
+4. **Restart Claude Code** for the hooks to take effect.
 
 ### Option 2: Auto-configure for your team
 
@@ -121,12 +130,17 @@ The `/quiz` skill:
 ```
 claude-code-quiz/
 ├── .claude-plugin/
-│   └── plugin.json          # Plugin manifest
+│   ├── plugin.json          # Plugin manifest
+│   └── marketplace.json     # Marketplace catalog
+├── commands/
+│   └── quiz.md              # Voluntary /code-quiz:quiz command
 ├── hooks/
-│   └── hooks.json           # PreToolUse hook for git operations
+│   ├── hooks.json           # PreToolUse hook configuration
+│   └── scripts/
+│       └── check-git-op.sh  # Script to detect git commit/push
 ├── skills/
 │   └── quiz/
-│       └── SKILL.md         # Voluntary /quiz command
+│       └── SKILL.md         # Agent skill for code quizzing
 └── README.md
 ```
 
@@ -134,11 +148,11 @@ claude-code-quiz/
 
 ### Adjust Question Count
 
-Edit `hooks/hooks.json` and change "2-3 questions" to your preferred number.
+Edit `hooks/scripts/check-git-op.sh` and change "2-3 questions" in the `permissionDecisionReason` to your preferred number.
 
 ### Stricter Enforcement
 
-To block commits on failed quizzes, modify the hook prompt in `hooks/hooks.json` to return "block" instead of "proceed" when answers are incorrect. (Not recommended for most teams.)
+To block commits on failed quizzes, remove the retry logic in `hooks/scripts/check-git-op.sh` so the hook always denies git operations when quiz answers are incorrect. (Not recommended for most teams.)
 
 ## Disclaimers 
 
