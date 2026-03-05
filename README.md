@@ -26,34 +26,40 @@ Automatically prompts you with 2-3 questions before any `git commit` or `git pus
 
 ## Installation
 
-### Option 1: Clone and install locally
+### Option 1: Install from GitHub (recommended)
 
-```bash
-git clone https://github.com/cal-poly-dxhub/claude-code-quiz.git
-```
-
-Then in Claude Code:
+In Claude Code, add the marketplace and install the plugin:
 
 ```
-/plugin install /path/to/claude-code-quiz
+/plugin marketplace add cal-poly-dxhub/claude-code-quiz
+/plugin install code-quiz@cal-poly-dxhub-claude-code-quiz
 ```
 
-### Option 2: Install directly from GitHub
+### Option 2: Auto-configure for your team
 
-```
-/plugin install https://github.com/cal-poly-dxhub/claude-code-quiz
-```
-
-### Option 3: Add to settings
-
-Add to your Claude Code settings file (`~/.claude/settings.json`):
+Add to your project's `.claude/settings.json` so team members are prompted to install automatically:
 
 ```json
 {
-  "plugins": [
-    "https://github.com/cal-poly-dxhub/claude-code-quiz"
-  ]
+  "extraKnownMarketplaces": {
+    "cal-poly-dxhub-claude-code-quiz": {
+      "source": {
+        "source": "github",
+        "repo": "cal-poly-dxhub/claude-code-quiz"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "code-quiz@cal-poly-dxhub-claude-code-quiz": true
+  }
 }
+```
+
+### Option 3: Test locally during development
+
+```bash
+git clone https://github.com/cal-poly-dxhub/claude-code-quiz.git
+claude --plugin-dir ./claude-code-quiz
 ```
 
 ## Usage

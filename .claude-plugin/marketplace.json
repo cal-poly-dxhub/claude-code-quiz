@@ -1,0 +1,23 @@
+{
+  "name": "cal-poly-dxhub-claude-code-quiz",
+  "owner": {
+    "name": "Cal Poly DxHub"
+  },
+  "metadata": {
+    "description": "Quiz developers on their code changes before commits/pushes to ensure code comprehension"
+  },
+  "plugins": [
+    {
+      "name": "code-quiz",
+      "source": ".",
+      "description": "Quiz developers on their code changes before commits/pushes to ensure code comprehension",
+      "version": "1.0.0",
+      "author": {
+        "name": "Swayam Chidrawar"
+      },
+      "homepage": "https://github.com/cal-poly-dxhub/claude-code-quiz",
+      "keywords": ["quiz", "code-review", "learning", "vibe-coding"],
+      "category": "development-workflows"
+    }
+  ]
+}
