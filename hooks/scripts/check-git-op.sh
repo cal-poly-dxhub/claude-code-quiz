@@ -7,7 +7,7 @@ INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
 
 # Check if this is a git commit or git push operation
-if echo "$COMMAND" | grep -qE '^\s*git\s+(commit|push)(\s|$)'; then
+if echo "$COMMAND" | grep -qE 'git\s+(commit|push)(\s|$)'; then
   cat <<'EOF'
 {
   "hookSpecificOutput": {
