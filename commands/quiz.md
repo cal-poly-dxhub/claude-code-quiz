@@ -22,21 +22,18 @@ When the user invokes this command:
      - What would happen if certain inputs were provided
      - Why certain implementation choices were made
    - Vary difficulty from basic to moderate
-   - Each question should have 4 multiple choice options (A, B, C, D)
 
-4. **Present ALL questions at once:**
-   - Display all questions in a single numbered list with their multiple choice options
-   - Then use a SINGLE AskUserQuestion call asking the user to provide all their answers
-   - Format the prompt like: "Enter your answers (e.g. 1:A 2:B 3:C 4:D 5:A)"
-   - Do NOT ask questions one at a time
+4. **Present the quiz:**
+   - Use the AskUserQuestion tool to present questions one at a time
+   - For each question, provide 3-4 multiple choice options
+   - Wait for the user's response before proceeding
 
-5. **Evaluate all answers together:**
-   - After receiving all answers, go through each one
-   - For each question, state whether the answer was correct or incorrect
-   - For incorrect answers, provide the correct answer with a brief explanation
+5. **Provide feedback:**
+   - After each answer, explain whether it was correct
+   - For incorrect answers, provide the correct answer with explanation
    - Reference specific lines of code when explaining
 
 6. **Summarize results:**
-   - Show the user's score (e.g., "3/5 correct")
+   - At the end, show the user's score (e.g., "3/5 correct")
    - Highlight any areas where understanding could be improved
    - Encourage the user if they did well
