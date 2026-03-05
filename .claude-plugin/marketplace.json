@@ -10,8 +10,8 @@
     {
       "name": "code-quiz",
       "source": {
-        "source": "github",
-        "repo": "cal-poly-dxhub/claude-code-quiz"
+        "source": "url",
+        "url": "https://github.com/cal-poly-dxhub/claude-code-quiz.git"
       },
       "description": "Quiz developers on their code changes before commits/pushes to ensure code comprehension",
       "version": "1.0.0",
