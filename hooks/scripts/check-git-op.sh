@@ -1,25 +1,22 @@
 #!/bin/bash
-# Reads the Bash command from hook input and checks if it's a git commit or push.
-# If it is and no quiz has been done recently, denies the command so Claude quizzes the user first.
-# Uses a temp file as a flag to avoid infinite deny loops.
+# Checks if a Bash command is a git commit/push.
+# If so, denies it once so Claude quizzes the user first.
+# On retry (within 2 min), allows it through.
 
 INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
 
-# Check if this is a git commit or git push operation
 if echo "$COMMAND" | grep -qE 'git\s+(commit|push)(\s|$)'; then
-  QUIZ_FLAG="/tmp/claude-quiz-done-$$"
+  FLAG="/tmp/claude-code-quiz-pass"
 
-  # Check if quiz was recently completed (within last 120 seconds)
-  for f in /tmp/claude-quiz-done-*; do
-    if [ -f "$f" ] && [ "$(find "$f" -mmin -2 2>/dev/null)" ]; then
-      rm -f "$f"
-      exit 0
-    fi
-  done
+  # If flag exists and is less than 2 minutes old, allow the retry
+  if [ -f "$FLAG" ] && [ "$(find "$FLAG" -mmin -2 2>/dev/null)" ]; then
+    rm -f "$FLAG"
+    exit 0
+  fi
 
-  # Create the flag file so the retry goes through
-  touch "/tmp/claude-quiz-done-flag"
+  # Set the flag so the next attempt goes through
+  touch "$FLAG"
 
   cat <<'EOF'
 {
