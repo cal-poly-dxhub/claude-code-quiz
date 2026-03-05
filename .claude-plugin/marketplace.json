@@ -9,7 +9,10 @@
   "plugins": [
     {
       "name": "code-quiz",
-      "source": ".",
+      "source": {
+        "source": "github",
+        "repo": "cal-poly-dxhub/claude-code-quiz"
+      },
       "description": "Quiz developers on their code changes before commits/pushes to ensure code comprehension",
       "version": "1.0.0",
       "author": {
