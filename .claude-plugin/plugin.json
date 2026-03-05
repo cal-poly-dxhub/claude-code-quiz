@@ -1,6 +1,6 @@
 {
   "name": "code-quiz",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Quiz developers on their code changes before commits/pushes to ensure code comprehension",
   "author": {
     "name": "Swayam Chidrawar"
