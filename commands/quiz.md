@@ -1,0 +1,39 @@
+---
+description: Quiz yourself on recent code changes to verify your understanding
+---
+
+When the user invokes this command:
+
+1. **Identify code to quiz on:**
+   - First check for uncommitted changes using `git diff` and `git diff --cached`
+   - If no uncommitted changes exist, analyze the last commit using `git show HEAD`
+   - If not in a git repo, inform the user and exit
+
+2. **Analyze the changes:**
+   - Review the code modifications carefully
+   - Identify key concepts, patterns, and logic in the changes
+   - Note any potential edge cases or important details
+
+3. **Generate 3-5 quiz questions:**
+   - Create questions that test understanding, not just recall
+   - Include questions about:
+     - What the code does and why
+     - How specific functions or logic blocks work
+     - What would happen if certain inputs were provided
+     - Why certain implementation choices were made
+   - Vary difficulty from basic to moderate
+
+4. **Present the quiz:**
+   - Use the AskUserQuestion tool to present questions one at a time
+   - For each question, provide 3-4 multiple choice options
+   - Wait for the user's response before proceeding
+
+5. **Provide feedback:**
+   - After each answer, explain whether it was correct
+   - For incorrect answers, provide the correct answer with explanation
+   - Reference specific lines of code when explaining
+
+6. **Summarize results:**
+   - At the end, show the user's score (e.g., "3/5 correct")
+   - Highlight any areas where understanding could be improved
+   - Encourage the user if they did well
